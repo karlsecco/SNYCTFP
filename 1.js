@@ -19,9 +19,10 @@ Pseudocode:
     - if s === t push to arr
 - return joined arr
 
-* refactor consider using frequency counter *
+* consider refactor using frequency counter *
 */
 
+/*
 function sortByStrings(s, t) {
   let sorted = [];
   for (let ltrT of t) {
@@ -29,6 +30,25 @@ function sortByStrings(s, t) {
       if (ltrT.toLowerCase() === ltrS.toLowerCase()) {
         sorted.push(ltrS);
       }
+    }
+  }
+  return sorted.join("");
+}
+*/
+
+// refactored using frequency counter for O(n) time complexity where n is length of s
+
+function sortByStrings(s, t) {
+  let sorted = [];
+  let freqCount = {};
+  for (let ltrS of s) {
+    freqCount[ltrS] = freqCount[ltrS] + 1 || 1;
+  }
+  for (let ltrT of t) {
+    if (freqCount[ltrT.toLowerCase()]) {
+      sorted.push(ltrT.toLowerCase().repeat(freqCount[ltrT.toLowerCase()]));
+    } else if (freqCount[ltrT.toUpperCase()]) {
+      sorted.push(ltrT.toUpperCase().repeat(freqCount[ltrT.toUpperCase()]));
     }
   }
   return sorted.join("");
