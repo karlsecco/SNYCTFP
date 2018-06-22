@@ -13,17 +13,13 @@ your program would output 4—the number of ways to make 4¢ with those denomina
 1¢, 1¢, 2¢
 1¢, 3¢
 2¢, 2¢
-*/
 
-/*
 Inputs: number (amount), array (denominations)
 Output: number of ways to make amount with denominations
 Edgecases: amount < 1, sorted array?
 
 * can solve using dynamic programming tabulation *
-*/
 
-/*
 Pseudocode:
 - declare table array with amount of n + 1
 - fill table with 0s
@@ -35,7 +31,9 @@ Pseudocode:
 */
 
 function changePossibilities(amount, denominations) {
-  if (amount < 1) return 0;
+  if (amount < 1) {
+    return 0;
+  }
   let tbl = new Array(amount + 1).fill(0);
   tbl[0] = 1;
   for (let i = 0; i < denominations.length; i++) {
@@ -47,10 +45,34 @@ function changePossibilities(amount, denominations) {
   return tbl[amount];
 }
 
+/*
+Refactor: assuming array of denominations is sorted (like example input),
+loop through denominations only as long as current value is <= amount:
+
+function changePossibilities(amount, denominations) {
+  if (amount < 1) {
+    return 0;
+  }
+  let tbl = new Array(amount + 1).fill(0);
+  tbl[0] = 1;
+  let i = 0;
+  while (denominations[i] <= amount) {
+    const curr = denominations[i];
+    for (let j = curr; j < tbl.length; j++) {
+      tbl[j] += tbl[j - curr];
+    }
+    i++;
+  }
+  return tbl[amount];
+}
+
+changePossibilities(4, [1, 2, 3, 5, 10, 20]) // 4
+*/
+
 changePossibilities(4, [1, 2, 3]); // 4
 changePossibilities(5, [1, 2, 3]); // 5
 changePossibilities(5, [1, 2, 3, 5]); // 6
 changePossibilities(10, [2, 4, 5]); // 4
 changePossibilities(1, [2, 3]); // 0
 changePossibilities(0, [1, 2, 3]); // 0
-changePossibilities(-1, [1, 2, 3]); // 4
+changePossibilities(-1, [1, 2, 3]); // 0
