@@ -1,0 +1,14 @@
+.user-list {
+  list-style-type: none;
+  padding: 0
+}
+
+.user-list__username {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.user-list__full-name {
+  font-size: 1.25em;
+  color: grey;
+}

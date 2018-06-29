@@ -14,7 +14,7 @@ export default class Month extends PureComponent {
     }
 
     return (
-      <div>
+      <div className="text-center">
         <h2>
           {name} {year}
         </h2>

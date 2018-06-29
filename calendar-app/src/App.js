@@ -4,7 +4,7 @@ import Calendar from './Calendar';
 export default class App extends PureComponent {
   render() {
     return (
-      <div className="App">
+      <div className="container">
         <Calendar />
       </div>
     );

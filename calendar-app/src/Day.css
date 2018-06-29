@@ -1,0 +1,15 @@
+.day {
+  position: relative;
+  display: inline-flex;
+  width: 14%;
+  padding-top: 14%;
+  margin: 1px;
+  border: 1px solid black;
+}
+
+.day__date {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-left: 10px;
+}
