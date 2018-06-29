@@ -1,9 +1,12 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import Calendar from './Calendar';
 
-class App extends Component {
+export default class App extends PureComponent {
   render() {
-    return <div className="App" />;
+    return (
+      <div className="App">
+        <Calendar />
+      </div>
+    );
   }
 }
-
-export default App;
