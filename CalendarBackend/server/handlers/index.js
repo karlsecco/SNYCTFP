@@ -1,0 +1,1 @@
+exports.eventsHandler = require('./events');
