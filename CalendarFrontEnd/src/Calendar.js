@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import User from './User';
 import Month from './Month';
+import EventForm from './EventForm';
 
 export default class Calendar extends Component {
   state = {
@@ -20,6 +21,7 @@ export default class Calendar extends Component {
     return (
       <div>
         <User user={this.state.currentUser} />
+        <EventForm />
         <Month month={this.state.month} />
       </div>
     );
