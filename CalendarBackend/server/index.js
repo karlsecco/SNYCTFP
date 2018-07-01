@@ -34,6 +34,10 @@ async function startServer() {
 
   app.use('/events', eventsRouter);
 
+  app.get('/', (req, res, next) => {
+    return res.redirect('/events');
+  });
+
   app.use((err, req, res, next) => {
     return res.status(err.status || 500, {
       message: err.message
