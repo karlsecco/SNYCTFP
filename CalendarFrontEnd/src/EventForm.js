@@ -28,7 +28,7 @@ export default class EventForm extends Component {
               type="text"
               name="eventTitle"
               id="eventTitle"
-              class="form-control"
+              className="form-control"
               placeholder="E.g. SNYC calendar app due"
               onChange={this.handleChange}
             />
@@ -39,7 +39,7 @@ export default class EventForm extends Component {
               type="time"
               name="startTime"
               id="startTime"
-              class="form-control"
+              className="form-control"
               onChange={this.handleChange}
             />
           </div>
@@ -49,7 +49,7 @@ export default class EventForm extends Component {
               type="time"
               name="endTime"
               id="endTime"
-              class="form-control"
+              className="form-control"
               onChange={this.handleChange}
             />
           </div>
@@ -59,12 +59,12 @@ export default class EventForm extends Component {
               rows="3"
               name="description"
               id="description"
-              class="form-control"
+              className="form-control"
               placeholder="E.g. Complete frontend and backend builds by 6/29/18"
               onChange={this.handleChange}
             />
           </div>
-          <button onSubmit={this.handleSubmit} class="btn btn-default">
+          <button onSubmit={this.handleSubmit} className="btn btn-default">
             Submit
           </button>
         </form>
