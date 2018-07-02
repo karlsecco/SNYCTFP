@@ -32,6 +32,17 @@ async function startServer() {
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json({ type: '*/*' }));
 
+  app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header(
+      'Access-Control-Allow-Headers',
+      'Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization'
+    );
+    res.header('Access-Control-Allow-Methods', 'POST,GET,PATCH,DELETE,OPTIONS');
+    res.header('Content-Type', 'application/json');
+    return next();
+  });
+
   app.use('/events', eventsRouter);
 
   app.get('/', (req, res, next) => {

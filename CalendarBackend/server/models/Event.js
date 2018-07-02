@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const eventSchema = new Schema({
-  title: String,
-  startTime: String,
-  endTime: String,
-  description: String
+  title: { type: String, required: true },
+  startTime: { type: String, required: true },
+  endTime: { type: String, required: true },
+  description: { type: String, required: true }
 });
 
 eventSchema.statics = {
