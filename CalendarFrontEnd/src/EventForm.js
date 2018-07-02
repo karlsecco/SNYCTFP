@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 
 export default class EventForm extends Component {
@@ -14,8 +15,17 @@ export default class EventForm extends Component {
   };
 
   handleSubmit = async e => {
-    e.preventDefault();
-    // POST via axios
+    try {
+      await axios.post('http://localhost:5000/events', this.state);
+      this.setState({
+        title: '',
+        startTime: '',
+        endTime: '',
+        description: ''
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   render() {
@@ -23,13 +33,14 @@ export default class EventForm extends Component {
       <div>
         <form>
           <div className="form-group">
-            <label htmlFor="eventTitle">Event Title</label>
+            <label htmlFor="title">Event Title</label>
             <input
               type="text"
-              name="eventTitle"
-              id="eventTitle"
+              name="title"
+              id="title"
               className="form-control"
               placeholder="E.g. SNYC calendar app due"
+              required
               onChange={this.handleChange}
             />
           </div>
@@ -40,6 +51,7 @@ export default class EventForm extends Component {
               name="startTime"
               id="startTime"
               className="form-control"
+              required
               onChange={this.handleChange}
             />
           </div>
@@ -50,6 +62,7 @@ export default class EventForm extends Component {
               name="endTime"
               id="endTime"
               className="form-control"
+              required
               onChange={this.handleChange}
             />
           </div>
@@ -61,10 +74,11 @@ export default class EventForm extends Component {
               id="description"
               className="form-control"
               placeholder="E.g. Complete frontend and backend builds by 6/29/18"
+              required
               onChange={this.handleChange}
             />
           </div>
-          <button onSubmit={this.handleSubmit} className="btn btn-default">
+          <button onClick={this.handleSubmit} className="btn btn-default">
             Submit
           </button>
         </form>

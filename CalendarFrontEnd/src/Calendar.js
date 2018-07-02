@@ -28,7 +28,6 @@ export default class Calendar extends Component {
     try {
       let events = await axios.get('http://localhost:5000/events');
       this.setState({ events });
-      console.log(this.state.events.data.data);
     } catch (err) {
       console.log(err);
     }
