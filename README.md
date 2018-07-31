@@ -1,13 +1,13 @@
-# SNYCTFP
+# SNYCTFP timed, take-home challenge
 
-## Calendar
+## Calendar app
 
 Stage Two assignments submitted 6/29/18, titled according to instructions. The frontend was built in React and the backend with Express, Mongoose, and MongoDB:
 
 - [CalendarFrontEnd/](https://github.com/karlsecco/SNYCTFP/tree/master/CalendarFrontEnd)
 - [CalendarBackend/](https://github.com/karlsecco/SNYCTFP/tree/master/CalendarBackend)
 
-## Questions
+## Algorithms
 
 Questions 1-3 completed on 6/20/18 according to instructions:
 
